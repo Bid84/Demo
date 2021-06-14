@@ -6,10 +6,22 @@ public class Jaar {
         this.jaar =jaar;
     }
     public boolean isSchrikkeljaar(){
-        return jaar %4 ==0 && jaar%100== 0 || jaar % 400 ==0;
+        return jaar %4 ==0 && jaar%100 !=0 || jaar % 400 ==0;
     }
     @Override
     public String toString(){
         return String.valueOf(jaar);
+    }
+    @Override
+    public boolean equals(Object object){
+        if(object instanceof Jaar){
+            var anderjaar = (Jaar) object;
+            return jaar==anderjaar.jaar;
+        }
+        return false;
+    }
+    @Override
+    public int hashCode(){
+        return jaar;
     }
 }
